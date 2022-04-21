@@ -1,0 +1,23 @@
+from Kard import Kards
+class Player(object):
+    def __init__(self,name,typ):
+        self.name=name 
+        self.typ=typ 
+        k=Kards()
+
+    def show(self):
+        if self.typ=='comp':
+            print "Компьютер по имени "
+
+        elif self.typ=='human':
+            print "Человек по имени "
+
+        elif self.typ=='cat':
+            print "Котик по имени "
+
+        else:
+            print "Неведома зверушка по имени "
+        print self.name+'\n'
+        k.show()
+
+
