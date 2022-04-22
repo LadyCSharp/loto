@@ -1,16 +1,17 @@
 import random
 import numpy as np
-from numpy.core.fromnumeric import shape
+
+
 class Kards(object):
     """description of class"""
     def __init__(self):
-        self.A = np.zeros(shape=(3,9),dtype='int')
-        balls=[b for b in range(1,91)]
+        self.A = np.zeros(shape=(3, 9),dtype='int')
+        balls = [b for b in range(1, 91)]
         for i in range(3):
             for j in range(5):
-                pos=random.randint(0,8)
-                if self.A[i,pos]==0:
-                       b=random.choice(balls)
+                pos = random.randint(0, 8)
+                if self.A[i, pos] == 0:
+                       b = random.choice(balls)
                        balls.remove(b)
                        self.A[i,pos]=b
                 else:
