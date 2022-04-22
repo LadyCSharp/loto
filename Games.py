@@ -15,17 +15,10 @@ class Game(object):
         p3 = Player('Borland', 'Comp')
         self.players = [p1, p3, p2]
 
-    def show(self):
-        print('Рaунд ', self.etap, '\n')
-        for p in self.players:
-            p.show()
-        if self.gameOver:
-            print('Игра закончена')
-
     def step(self):
         self.etap += 1
         b = self.m.get()
-        print('Выпал боченок', b)
+        print('Выпал бочонок', b)
         # rez=[]
         for p in self.players:
             r = p.cross_out(b)
@@ -40,3 +33,12 @@ class Game(object):
         # self.gameOver= self.m.isEmpty()
         if self.m.isEmpty():
             self.gameOver = True
+
+    def __str__(self):
+        s = 'Рaунд ' + str(self.etap) + '\n'
+        s += str(self.m) + '\n'
+        for p in self.players:
+            s += str(p)
+        if self.gameOver:
+            s += 'Игра закончена'
+        return s

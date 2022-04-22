@@ -27,10 +27,21 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(self.ph.typ, 'Human')
         
     def test_cross_out(self):
-        # TODO Прифигачить обезьянку
+        # TODO: Прифигачить обезьянку
         # p = Player('Mary', 'Comp')
         b = random.randint(1, 90)
         self.assertEqual(self.pc.cross_out(b), 'continue')
+
+    def test_eq(self):
+        self.assertFalse(self.ph == self.p)
+        self.assertFalse(self.ph == self.pc)
+        self.assertFalse(self.pc == self.p)
+
+    def test_str(self):
+        self.assertIn('Человек', str(self.ph))
+        self.assertIn('Компьютер', str(self.pc))
+        self.assertIn('Котик', str(self.p))
+        self.assertIn('Неведома зверушка по имени', str(Player('Нюся', 'Котеночек')))
 
 
 class TestGame(unittest.TestCase):
@@ -39,3 +50,14 @@ class TestGame(unittest.TestCase):
         self.assertEqual(g.etap, 0)
         self.assertFalse(g.gameOver)
         self.assertEqual(len(g.players), 3)
+
+    def test_step(self):
+        g = Game()
+        g.step()
+        self.assertEqual(g.etap, 1)
+        self.assertFalse(g.gameOver)
+        self.assertEqual(len(g.players), 3)
+
+    def test_str(self):
+        g = Game()
+        self.assertIn('Рaунд ', str(g))
