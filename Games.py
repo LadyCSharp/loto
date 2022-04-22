@@ -11,7 +11,7 @@ class Game(object):
         # p2=Player('lenovo','Comp')
         # p3 = Player('Borland', 'Cat')
         p1 = Player('Mary', 'Comp')
-        p2 = Player('lenovo', 'Comp')
+        p2 = Player('Lenovo', 'Comp')
         p3 = Player('Borland', 'Comp')
         self.players = [p1, p3, p2]
 
